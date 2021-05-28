@@ -20,10 +20,23 @@ class Plugin {
 	 */
 	public static $instance = null;
 
-	public $slug = 'jet-form-builder-integration';
+	public $slug = 'jet-forms-addon-boilerplate-manual';
 
 	public function __construct() {
+		$this->register_autoloader();
+		$this->init_components();
+	}
 
+	private function init_components() {
+		Jet_Form_Builder\Actions\My_Action::register();
+	}
+
+	/**
+	 * Register autoloader.
+	 */
+	public function register_autoloader() {
+		require JET_FB_MANUAL_BOILERPLATE_PATH . 'includes/autoloader.php';
+		Autoloader::run();
 	}
 
 	public function get_version() {

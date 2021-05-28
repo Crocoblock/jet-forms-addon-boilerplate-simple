@@ -27,7 +27,7 @@ Inside this class, we must define several required methods:
      * @return string  
      */
     public function get_id() {  
-        return 'stone_age';  
+        return 'my_action';  
     }
 ```
 
@@ -40,7 +40,7 @@ Inside this class, we must define several required methods:
      * @return string  
      */
     public function get_name() {  
-        return __( 'Stone Age Action', 'jet-forms-addon-manual-boilerplate' );  
+        return __( 'My Action', 'jet-forms-addon-manual-boilerplate' );  
     }
 ```
 
@@ -78,7 +78,8 @@ Inside this class, we must define several required methods:
 #### method `self_script_name` : `optional`
 > Returns the name of the object that is registered globally on the form edit page.
 
-> *If you use the methods that are listed here after `self_script_name`, then in this method you must specify the unique name of the object*
+> *If you use the methods that are listed here after `self_script_name`, 
+> then in this method you must specify the unique name of the object*
 ```php
     // class declaration
 
@@ -86,13 +87,12 @@ Inside this class, we must define several required methods:
      * @return string  
      */
     public function self_script_name() {  
-        return 'JetStoneAgeAction';  
+        return 'JetMyAction';  
     }
 ```
 
 #### method `editor_labels` : `optional`
-> Возвращает array в формате `attr_id => attr_label`. 
-> Можно оставить пустым, если необходимо регистрировать labels со стороны `JavaScript`
+> Returns an array in the format `attr_id => attr_label`.
 ```php
     // class declaration
 
@@ -108,7 +108,7 @@ Inside this class, we must define several required methods:
 ```
 
 #### method `visible_attributes_for_gateway_editor` : `optional`
-> Возвращает массив из `attr_id` всех атрибутов экшена.
+> Returns an array of the `attr_id` of all the attributes of the action.
 ```php
     // class declaration
 
@@ -119,3 +119,61 @@ Inside this class, we must define several required methods:
         return array( 'id', 'title' );
     }
 ```
+#### Adding an action to the manager
+To register an action, you need to attach a method to the 
+`jet-form-builder/actions/register` hook, like this:
+```php
+    // class declaration
+
+    public static function register() {
+        $self = new self();
+    
+    	add_action(
+            'jet-form-builder/actions/register',
+            array( $self, 'register_action' )
+        );
+    }
+```
+At this stage, you can already see that your action is already 
+available for selection on the form. https://prnt.sc/13ig4yx
+
+If your action doesn't need any input from the form builder, or that data shouldn't 
+change, then you don't need to enqueue a separate js-script for your action.
+
+#### Enqueuing action js-script
+To enqueue a script, add a function to the hook
+`jet-form-builder/editor-assets/before`. 
+This can be done in the same `register` method: 
+```php
+    use Jet_FB_Manual_Boilerplate\Plugin;
+
+    // class declaration
+
+    public static function register() {
+        $self = new self();
+    
+    	/** ... add action for register action  */
+
+        add_action(
+            'jet-form-builder/actions/register',
+            array( $self, 'editor_assets' )
+        );
+    }
+
+    public function editor_assets() {
+        wp_enqueue_script(
+            Plugin::instance()->slug,
+            Plugin::instance()->plugin_url( 'assets/js/builder.editor.js' ),
+            array(),
+            Plugin::instance()->get_version(),
+            true
+        );
+    }
+```
+
+
+
+
+
+
+
