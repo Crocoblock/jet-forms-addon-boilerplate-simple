@@ -7,10 +7,10 @@ const {
 	  } = JetFBActions;
 
 addAction( 'my_action', function MyAction( {
-												 settings,
-												 label,
-												 onChangeSetting,
-											 } ) {
+											   settings,
+											   label,
+											   onChangeSetting,
+										   } ) {
 
 	return <>
 		<TextControl
