@@ -1,11 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
+const { VueLoaderPlugin } = require( 'vue-loader' );
 
 module.exports = {
 	name: 'js_bundle',
 	context: path.resolve(__dirname, 'src'),
 	entry: {
 		'builder.editor.js': './jet-form-builder/editor/action.js',
+		'builder.admin.js': './jet-form-builder/admin/main.js',
 	},
 	output: {
 		path: path.resolve( __dirname, 'js' ),
@@ -22,12 +24,19 @@ module.exports = {
 			'@': path.resolve( __dirname, 'src' )
 		}
 	},
+	plugins: [
+		new VueLoaderPlugin()
+	],
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader'
 			},
 		]
 	}

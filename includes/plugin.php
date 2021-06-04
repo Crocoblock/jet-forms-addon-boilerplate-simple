@@ -1,6 +1,6 @@
 <?php
 
-namespace Jet_FB_Manual_Boilerplate;
+namespace Jet_FB_Simple_Boilerplate;
 
 if ( ! defined( 'WPINC' ) ) {
 	die();
@@ -20,7 +20,7 @@ class Plugin {
 	 */
 	public static $instance = null;
 
-	public $slug = 'jet-forms-addon-boilerplate-manual';
+	public $slug = 'jet-forms-addon-boilerplate-simple';
 
 	public function __construct() {
 		$this->register_autoloader();
@@ -35,20 +35,20 @@ class Plugin {
 	 * Register autoloader.
 	 */
 	public function register_autoloader() {
-		require JET_FB_MANUAL_BOILERPLATE_PATH . 'includes/autoloader.php';
+		require JET_FB_SIMPLE_BOILERPLATE_PATH . 'includes/autoloader.php';
 		Autoloader::run();
 	}
 
 	public function get_version() {
-		return JET_FB_MANUAL_BOILERPLATE_VERSION;
+		return JET_FB_SIMPLE_BOILERPLATE_VERSION;
 	}
 
 	public function plugin_url( $path ) {
-		return JET_FB_MANUAL_BOILERPLATE_URL . $path;
+		return JET_FB_SIMPLE_BOILERPLATE_URL . $path;
 	}
 
 	public function get_template_path( $template ) {
-		$path = JET_FB_MANUAL_BOILERPLATE_PATH . 'templates' . DIRECTORY_SEPARATOR;
+		$path = JET_FB_SIMPLE_BOILERPLATE_PATH . 'templates' . DIRECTORY_SEPARATOR;
 
 		return ( $path . $template . '.php' );
 	}

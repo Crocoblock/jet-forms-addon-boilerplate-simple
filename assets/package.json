@@ -1,6 +1,6 @@
 {
-	"name": "jet-forms-addon-boilerplate-manual",
-	"description": "JetForms Manual Boilerplate",
+	"name": "jet-forms-addon-boilerplate-simple",
+	"description": "JetForms Simple Boilerplate",
 	"version": "1.0.0",
 	"license": "MIT",
 	"private": true,
@@ -14,6 +14,8 @@
 		"@babel/plugin-transform-react-jsx": "^7.12.17",
 		"@babel/preset-env": "^7.13.10",
 		"babel-loader": "^8.1.0",
+		"vue-loader": "^15.9.6",
+		"vue-template-compiler": "^2.6.12",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12"
 	}

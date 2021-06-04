@@ -1,6 +1,6 @@
 <?php
 
-namespace Jet_FB_Manual_Boilerplate;
+namespace Jet_FB_Simple_Boilerplate;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -42,7 +42,7 @@ class Autoloader {
 
 		$file     = str_replace( '\\', DIRECTORY_SEPARATOR, $class_name );
 		$file     = strtolower( str_replace( '_', '-', $file ) );
-		$filepath = JET_FB_MANUAL_BOILERPLATE_PATH . 'includes/' . $file . '.php';
+		$filepath = JET_FB_SIMPLE_BOILERPLATE_PATH . 'includes/' . $file . '.php';
 
 		if ( is_readable( $filepath ) ) {
 			require $filepath;
