@@ -54,14 +54,20 @@ Let's start building a vue component.
 > If you are a beginner or have no experience 
 > with this plan, you can study the official documentation: [Single File Components](https://vuejs.org/v2/guide/single-file-components.html).
 
-### property name : required
+### property name (string) : required
 > Must equal the returned string from the method [`slug`](https://github.com/girafffee/jet-forms-addon-boilerplate-simple/blob/main/docs/JetFormBuilder/add-tab/PHP.md#method-slug--required)
 > on the PHP side
 
-### property props.incoming : required
-> In this property you get the data that came from the server side, which you defined in the [`on_load`](https://github.com/girafffee/jet-forms-addon-boilerplate-simple/blob/main/docs/JetFormBuilder/add-tab/PHP.md#method-on_load--required) method.
+### property props.incoming (object) : required 
+> In this property you get the data that came from the server side, 
+> which you defined in the 
+> [`on_load`](https://github.com/girafffee/jet-forms-addon-boilerplate-simple/blob/main/docs/JetFormBuilder/add-tab/PHP.md#method-on_load--required) method.
 
 > It is assumed that you will be passing your tab settings here.
+
+### property methods.getRequestOnSave (function) : required
+> In this function, you must return an object with data 
+> that will be stored in your tab.
 
 By default, the script part of your component should look like this:
 ```js
