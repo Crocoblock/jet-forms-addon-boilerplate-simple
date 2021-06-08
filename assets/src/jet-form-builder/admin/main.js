@@ -1,4 +1,4 @@
-import * as tabComponent from '@/simple-tab';
+import * as tabComponent from '../../simple-tab';
 
 const {
 	addFilter

@@ -68,10 +68,28 @@ we can use our wrapper `Base_Handler::get_options( array $default_values )`.
     /**
      * @return array
      */
-    public function on_load(): array {
+    public function on_load() {
         return $this->get_options( array(
             'key'    => 'default key',
             'secret' => 'default secret'
         ) );
+    }
+```
+
+### method `before_assets` : `optional`
+To enqueue a script with javascript side tab registration, add this method. 
+```php
+    use Jet_FB_Simple_Boilerplate\Plugin;
+
+    // class declaration
+
+    public function before_assets() {
+        wp_enqueue_script(
+            Plugin::instance()->slug . "-{$this->slug()}",
+            Plugin::instance()->plugin_url( 'assets/js/builder.admin.js' ),
+            array(),
+            Plugin::instance()->get_version(),
+            true
+        );
     }
 ```

@@ -46,7 +46,7 @@ class My_Tab extends Base_Handler {
 	/**
 	 * @return array
 	 */
-	public function on_load(): array {
+	public function on_load() {
 		return $this->get_options( array(
 			'key'    => 'default key',
 			'secret' => 'default secret'

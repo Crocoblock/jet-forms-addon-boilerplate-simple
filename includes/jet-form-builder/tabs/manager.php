@@ -11,7 +11,7 @@ class Manager {
 	}
 
 	private function tabs() {
-		return array();
+		return array(  );
 	}
 
 	private function register_tabs() {

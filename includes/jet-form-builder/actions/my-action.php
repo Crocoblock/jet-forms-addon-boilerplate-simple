@@ -65,14 +65,6 @@ class My_Action extends ActionBase {
 	}
 
 	/**
-	 * Not required
-	 * @return bool
-	 */
-	public function dependence() {
-		return true;
-	}
-
-	/**
 	 * @param array $request
 	 * @param Action_Handler $handler
 	 *

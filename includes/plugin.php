@@ -29,6 +29,7 @@ class Plugin {
 
 	private function init_components() {
 		Jet_Form_Builder\Actions\My_Action::register();
+		new Jet_Form_Builder\Tabs\My_Tab();
 	}
 
 	/**

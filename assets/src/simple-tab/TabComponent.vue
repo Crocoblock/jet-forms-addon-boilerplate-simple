@@ -22,12 +22,7 @@ import {
 export default {
 	name: 'my-tab',
 	props: {
-		incoming: {
-			type: Object,
-			default() {
-				return {};
-			},
-		},
+		incoming: Object,
 	},
 	data() {
 		return {
