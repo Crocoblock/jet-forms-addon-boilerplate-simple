@@ -148,7 +148,7 @@ This can be done in the same `register` method:
     	/** ... add action for register action  */
 
         add_action(
-            'jet-form-builder/actions/register',
+            'jet-form-builder/editor-assets/before',
             array( $self, 'editor_assets' )
         );
     }
