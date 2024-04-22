@@ -1,22 +1,23 @@
 {
 	"name": "jet-forms-addon-boilerplate-simple",
 	"description": "JetForms Simple Boilerplate",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"dev": "webpack --mode development --progress --hide-modules -w",
-		"build": "webpack --mode production --progress --hide-modules"
+		"build": "npx webpack build --mode production",
+		"dev": "npx webpack build --mode development -w"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.13.10",
-		"@babel/plugin-proposal-class-properties": "^7.13.0",
-		"@babel/plugin-transform-react-jsx": "^7.12.17",
-		"@babel/preset-env": "^7.13.10",
-		"babel-loader": "^8.1.0",
-		"vue-loader": "^15.9.6",
-		"vue-template-compiler": "^2.6.12",
-		"webpack": "^4.44.2",
-		"webpack-cli": "^3.3.12"
+		"@babel/preset-react": "^7.23.3",
+		"@wordpress/babel-preset-default": "^7.35.0",
+		"@wordpress/dependency-extraction-webpack-plugin": "^5.2.0",
+		"babel-loader": "^8.2.2",
+		"webpack": "^5.90.3",
+		"webpack-cli": "^5.1.4"
+	},
+	"dependencies": {
+		"@wordpress/components": "^26.0.1",
+		"@wordpress/i18n": "^4.51.0"
 	}
 }

@@ -1,43 +1,37 @@
-const path = require('path');
-const webpack = require('webpack');
-const { VueLoaderPlugin } = require( 'vue-loader' );
+const WPExtractorPlugin = require(
+	'@wordpress/dependency-extraction-webpack-plugin',
+);
+const path              = require( 'path' );
+const devMode           = !process.argv.join( ':' ).
+	includes( '--mode:production' );
 
 module.exports = {
-	name: 'js_bundle',
-	context: path.resolve(__dirname, 'src'),
+	context: path.resolve( __dirname, 'src' ),
 	entry: {
-		'builder.editor.js': './jet-form-builder/editor/action.js',
-		'builder.admin.js': './jet-form-builder/admin/main.js',
+		'editor': './editor/index.js',
 	},
 	output: {
-		path: path.resolve( __dirname, 'js' ),
-		filename: '[name]'
+		path: path.resolve( __dirname, 'build' ),
 	},
-	devtool: 'inline-cheap-module-source-map',
 	resolve: {
-		modules: [
-			path.resolve( __dirname, 'src' ),
-			'node_modules'
-		],
-		extensions: [ '.js' ],
+		extensions: [ '.js', '.jsx' ],
 		alias: {
-			'@': path.resolve( __dirname, 'src' )
-		}
+			'@': path.resolve( __dirname, 'src' ),
+		},
 	},
-	plugins: [
-		new VueLoaderPlugin()
-	],
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
-				loader: 'babel-loader',
-				exclude: /node_modules/
+				test: /\.js(x)?$/,
+				use: [
+					'babel-loader',
+				],
+				exclude: /node_modules/,
 			},
-			{
-				test: /\.vue$/,
-				loader: 'vue-loader'
-			},
-		]
-	}
-}
+		],
+	},
+	plugins: [
+		new WPExtractorPlugin(),
+	],
+	devtool: devMode ? 'inline-cheap-module-source-map' : false,
+};

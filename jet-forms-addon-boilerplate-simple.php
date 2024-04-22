@@ -3,7 +3,7 @@
  * Plugin Name: JetForms Simple Boilerplate
  * Plugin URI:  https://crocoblock.com/
  * Description:
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Crocoblock
  * Author URI:  https://crocoblock.com/
  * Text Domain: jet-forms-addon-boilerplate-simple
@@ -17,15 +17,11 @@ if ( ! defined( 'WPINC' ) ) {
 	die();
 }
 
-add_action( 'plugins_loaded', function () {
+const JFB_SIMPLE_BOILERPLATE__FILE__ = __FILE__;
 
-	define( 'JET_FB_SIMPLE_BOILERPLATE_VERSION', '1.0.0' );
+define( 'JFB_SIMPLE_BOILERPLATE_PLUGIN_BASE', plugin_basename( JFB_SIMPLE_BOILERPLATE__FILE__ ) );
+define( 'JFB_SIMPLE_BOILERPLATE_PATH', plugin_dir_path( JFB_SIMPLE_BOILERPLATE__FILE__ ) );
+define( 'JFB_SIMPLE_BOILERPLATE_URL', plugins_url( '/', JFB_SIMPLE_BOILERPLATE__FILE__ ) );
 
-	define( 'JET_FB_SIMPLE_BOILERPLATE__FILE__', __FILE__ );
-	define( 'JET_FB_SIMPLE_BOILERPLATE_PLUGIN_BASE', plugin_basename( __FILE__ ) );
-	define( 'JET_FB_SIMPLE_BOILERPLATE_PATH', plugin_dir_path( __FILE__ ) );
-	define( 'JET_FB_SIMPLE_BOILERPLATE_URL', plugins_url( '/', __FILE__ ) );
-
-	require JET_FB_SIMPLE_BOILERPLATE_PATH . 'includes/plugin.php';
-}, 100 );
+require __DIR__ . '/includes/load.php';
 

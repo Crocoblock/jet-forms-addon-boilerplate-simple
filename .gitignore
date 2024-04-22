@@ -1,0 +1,7 @@
+composer.lock
+node_modules
+package-lock.json
+.nx
+
+/vendor/bin
+/vendor/composer/installed.json

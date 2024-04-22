@@ -1,0 +1,16 @@
+{
+	"name": "crocoblock/jet-form-builder-simple-boilerplate",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Oleksandr Ivanenko",
+			"email": "sanko200065@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"JFB\\SimpleBoilerplate\\": "includes/"
+		}
+	},
+	"description": ""
+}
